@@ -27,6 +27,14 @@ pipeline {
             Chrome: {
                 // sleep 2
                 bat "mvn test -Dbrowser=chrome"
+            }            
+            Edge: {
+                // sleep 2
+                bat "mvn test -Dbrowser=edge"
+            }
+            Opera: {
+                // sleep 2
+                bat "mvn test -Dbrowser=opera"
             }
           )
         }
