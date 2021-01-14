@@ -23,7 +23,7 @@
         <version>2.7.1</version>
         <configuration>
             <parallel>classes</parallel>
-            <threadCount>5</threadCount>
+            <threadCount>10</threadCount>
         </configuration>
     </plugin>
     </plugins>
