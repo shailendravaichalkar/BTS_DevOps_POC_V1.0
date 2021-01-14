@@ -9,6 +9,8 @@
   <url>http://maven.apache.org</url>
   <configuration>
     <parallel>all</parallel>
+    <threadCount>10</threadCount>
+    <useUnlimitedThreads>true</useUnlimitedThreads>
   </configuration>
   <dependencies>
     <dependency>
