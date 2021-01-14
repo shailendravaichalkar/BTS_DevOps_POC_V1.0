@@ -17,15 +17,15 @@ pipeline {
         steps {
            parallel(
             Firefox: {
-               sleep 2
+               // sleep 2
                 bat "mvn test -Dbrowser=firefox"
             },
             InternetExplorer: {
-                sleep 2
+                // sleep 2
                 bat "mvn test -Dbrowser=ie"
             },
             Chrome: {
-                sleep 2
+                // sleep 2
                 bat "mvn test -Dbrowser=chrome"
             }
           )
