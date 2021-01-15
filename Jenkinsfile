@@ -10,7 +10,7 @@ pipeline {
       stage('Build') {
 		steps {
 			git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
-			// bat "mvn clean compile"
+			bat "mvn clean compile"
 		}
       }
       stage('test') {           
@@ -18,27 +18,27 @@ pipeline {
            parallel(
             Firefox: {
                // sleep 2
-                //bat "mvn test -Dbrowser=firefox"
+                bat "mvn test -Dbrowser=firefox"
                 bat "echo Firefox"
             },
             InternetExplorer: {
                 // sleep 2
-                // bat "mvn test -Dbrowser=ie"
+                bat "mvn test -Dbrowser=ie"
                 bat "echo IE"
             },
             Chrome: {
                 // sleep 2
-                // bat "mvn test -Dbrowser=chrome"
+                bat "mvn test -Dbrowser=chrome"
                 bat "echo Chrome"
             },            
             Edge: {
                 // sleep 2
-                // bat "mvn test -Dbrowser=edge"   
+                bat "mvn test -Dbrowser=edge"   
                 bat "echo Edge"    
             },
             Opera: {   
                 // sleep 2
-               //bat "mvn test -Dbrowser=opera"
+               bat "mvn test -Dbrowser=opera"
                bat "echo Opera"
             }
           )
@@ -46,7 +46,7 @@ pipeline {
       } 
 	    stage('package') {
 	     steps {
-	        //bat "mvn install"
+	        bat "mvn install"
            bat "echo Hi"
 	     }
       }
