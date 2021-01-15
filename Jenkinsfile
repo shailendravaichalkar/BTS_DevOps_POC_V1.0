@@ -63,8 +63,7 @@ pipeline {
            // sshagent(['unix_devops']) {
               
            // }
-           )
-	     }
+         }
       }
 	} 
 	post {
