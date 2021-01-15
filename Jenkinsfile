@@ -29,11 +29,12 @@ pipeline {
             Chrome: {
                 // sleep 2
                 // bat "mvn test -Dbrowser=chrome"
+                bat "echo Chrome"
             },            
             Edge: {
                 // sleep 2
                 // bat "mvn test -Dbrowser=edge"   
-                bat "echo Chrome"    
+                bat "echo Edge"    
             },
             Opera: {   
                 // sleep 2
