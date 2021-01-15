@@ -10,7 +10,7 @@ pipeline {
       stage('Build') {
 		steps {
 			git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
-			bat "mvn clean compile"
+			// bat "mvn clean compile"
 		}
       }
       stage('test') {           
@@ -22,31 +22,33 @@ pipeline {
             },
             InternetExplorer: {
                 // sleep 2
-                bat "mvn test -Dbrowser=ie"
+                // bat "mvn test -Dbrowser=ie"
             },
             Chrome: {
                 // sleep 2
-                bat "mvn test -Dbrowser=chrome"
+                // bat "mvn test -Dbrowser=chrome"
             },            
             Edge: {
                 // sleep 2
-                bat "mvn test -Dbrowser=edge"
+                // bat "mvn test -Dbrowser=edge"
             },
             Opera: {
                 // sleep 2
-                bat "mvn test -Dbrowser=opera"
+               //bat "mvn test -Dbrowser=opera"
             }
           )
         }
       } 
 	    stage('package') {
 	     steps {
-	        bat "mvn install"
+	        //bat "mvn install"
+           bat "echo Hi"
 	     }
       }
       stage('Deploy in CERT') {
 	     steps {
-	        archiveArtifacts 'target/*.jar'
+	        // archiveArtifacts 'target/*.jar'
+           ssh devops@104.43.194.199:22 ls 
 	     }
       }
 	} 
