@@ -30,9 +30,9 @@ pipeline {
            // },            
            // Edge: {
                 // sleep 2
-                // bat "mvn test -Dbrowser=edge"
+                // bat "mvn test -Dbrowser=edge"       
            // },
-           // Opera: {
+           // Opera: {   
                 // sleep 2
                //bat "mvn test -Dbrowser=opera"
             }
@@ -47,8 +47,19 @@ pipeline {
       }
       stage('Deploy in CERT') {
 	     steps {
+           parallel(  
+              Windows: {
+                 echo "Windows"
+              },
+              UNIX: {
+                 echo "UNIX"
+              }      
+           )
 	        // archiveArtifacts 'target/*.jar'
-           bat "ssh devops@104.43.194.199 ls"
+           // sshagent(['unix_devops']) {
+              
+           // }
+           )
 	     }
       }
 	} 
