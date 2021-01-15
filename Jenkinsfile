@@ -48,7 +48,7 @@ pipeline {
       stage('Deploy in CERT') {
 	     steps {
 	        // archiveArtifacts 'target/*.jar'
-           bat "ssh devops@104.43.194.199:22 ls"
+           bat "ssh devops@104.43.194.199 ls"
 	     }
       }
 	} 
