@@ -19,20 +19,20 @@ pipeline {
             Firefox: {
                // sleep 2
                 bat "mvn test -Dbrowser=firefox"
-            },
-            InternetExplorer: {
+            //},
+            //InternetExplorer: {
                 // sleep 2
                 // bat "mvn test -Dbrowser=ie"
-            },
-            Chrome: {
+           // },
+            //Chrome: {
                 // sleep 2
                 // bat "mvn test -Dbrowser=chrome"
-            },            
-            Edge: {
+           // },            
+           // Edge: {
                 // sleep 2
                 // bat "mvn test -Dbrowser=edge"
-            },
-            Opera: {
+           // },
+           // Opera: {
                 // sleep 2
                //bat "mvn test -Dbrowser=opera"
             }
