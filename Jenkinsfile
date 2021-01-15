@@ -50,7 +50,7 @@ pipeline {
            bat "echo Hi"
 	     }
       }
-      stage('Deploy in CERT') {
+      stage('CERT') {
 	     steps {
            parallel(  
               Windows: {
@@ -58,6 +58,22 @@ pipeline {
               },
               UNIX: {
                  echo "UNIX"
+              }      
+           )
+	        // archiveArtifacts 'target/*.jar'
+           // sshagent(['unix_devops']) {
+              
+           // }
+         }
+      }
+            stage('PROD') {
+	     steps {
+           parallel(  
+              Windows: {
+                 echo "Windows PROD"
+              },
+              UNIX: {
+                 echo "UNIX PROD"
               }      
            )
 	        // archiveArtifacts 'target/*.jar'
