@@ -18,23 +18,27 @@ pipeline {
            parallel(
             Firefox: {
                // sleep 2
-                bat "mvn test -Dbrowser=firefox"
-            //},
-            //InternetExplorer: {
+                //bat "mvn test -Dbrowser=firefox"
+                bat "echo Firefox"
+            },
+            InternetExplorer: {
                 // sleep 2
                 // bat "mvn test -Dbrowser=ie"
-           // },
-            //Chrome: {
+                bat "echo IE"
+            },
+            Chrome: {
                 // sleep 2
                 // bat "mvn test -Dbrowser=chrome"
-           // },            
-           // Edge: {
+            },            
+            Edge: {
                 // sleep 2
-                // bat "mvn test -Dbrowser=edge"       
-           // },
-           // Opera: {   
+                // bat "mvn test -Dbrowser=edge"   
+                bat "echo Chrome"    
+            },
+            Opera: {   
                 // sleep 2
                //bat "mvn test -Dbrowser=opera"
+               bat "echo Opera"
             }
           )
         }
