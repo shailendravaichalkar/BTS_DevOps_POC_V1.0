@@ -7,13 +7,13 @@ pipeline {
       maven "localMaven"
     }
    stages {
-      stage('Build') {
+      stage('FETCH CODE') {
 		steps {
 			git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
 			bat "mvn clean compile"
 		}
       }
-      stage('test') {           
+      stage('TEST') {           
         steps {
            parallel(
             Firefox: {
@@ -44,7 +44,7 @@ pipeline {
           )
         }
       } 
-	    stage('package') {
+	    stage('BUILD') {
 	     steps {
 	        bat "mvn install"
            bat "echo Hi"
@@ -57,7 +57,7 @@ pipeline {
                  echo "Windows"
               },
               UNIX: {
-                 echo "UNIX"
+                 echo "Unix"
               }      
            )
 	        // archiveArtifacts 'target/*.jar'
@@ -70,10 +70,10 @@ pipeline {
 	     steps {
            parallel(  
               Windows: {
-                 echo "Windows PROD"
+                 echo "Windows Prod"
               },
               UNIX: {
-                 echo "UNIX PROD"
+                 echo "Unix Prod"
               }      
            )
 	        // archiveArtifacts 'target/*.jar'
