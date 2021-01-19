@@ -55,7 +55,7 @@ pipeline {
 	     steps {
            parallel(  
               Windows: {
-                 bat 'copy * c:\\POC\\'
+                 bat 'copy target\\*.jar c:\\POC\\'
                  echo "Windows"
               },
               UNIX: {
