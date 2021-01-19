@@ -86,17 +86,18 @@ pipeline {
       */
 	} 
 	post {
-      always {
+      /*always {
         emailext body: '$DEFAULT_CONTENT', 
                  subject: 'JENKINS: (${JOB_NAME}) (${BUILD_NUMBER}) : $DEFAULT_SUBJECT',
                  to: 'vaichalkar.shailendra@gmail.com'
 
         // recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
 
-       /* emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+        emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                  subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                  to: "vaichalkar.shailendra@gmail.com"
        */
+       emailext body: 'test SHA', subject: 'test SHA', to: 'vaichalkar.shailendra@gmail.com'
         echo "Mail Sent"
       }
     }
