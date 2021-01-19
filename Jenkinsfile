@@ -55,10 +55,11 @@ pipeline {
 	     steps {
            parallel(  
               Windows: {
+                 bat 'copy * c://POC//'
                  echo "Windows"
               },
               UNIX: {
-                 bat 'scp * devops@104.43.194.199:/home/devops/poc'
+                 \\bat 'scp * devops@104.43.194.199:/home/devops/poc'
                  echo "Unix"
               }      
            )
