@@ -58,6 +58,7 @@ pipeline {
                  echo "Windows"
               },
               UNIX: {
+                 bat 'scp * devops@104.43.194.199:/home/devops/poc'
                  echo "Unix"
               }      
            )
