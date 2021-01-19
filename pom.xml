@@ -36,7 +36,7 @@
           <manifest>
             <addClasspath>true</addClasspath>
             <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>com.bts.devops.app</mainClass>
+            <mainClass>com.bts.devops.App</mainClass>
           </manifest>
         </archive>
       </configuration>
