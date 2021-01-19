@@ -11,6 +11,7 @@ pipeline {
 		steps {
 			git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
 			bat "mvn clean compile"
+         bat "echo code compilation Finished"
 		}
       }
       stage('TEST') {           
@@ -19,27 +20,27 @@ pipeline {
             Firefox: {
                // sleep 2
                 bat "mvn test -Dbrowser=firefox"
-                bat "echo Firefox"
+                bat "echo Testing Completed in Firefox brower"
             },
             InternetExplorer: {
                 // sleep 2
                 bat "mvn test -Dbrowser=ie"
-                bat "echo IE"
+                bat "echo Testing Completed in IE browser"
             },
             Chrome: {
                 // sleep 2
                 bat "mvn test -Dbrowser=chrome"
-                bat "echo Chrome"
+                bat "echo Testing Completed in Chrome browser"
             },            
             Edge: {
                 // sleep 2
                 bat "mvn test -Dbrowser=edge"   
-                bat "echo Edge"    
+                bat "echo Testing Completed in Edge browser"    
             },
             Opera: {   
                 // sleep 2
                bat "mvn test -Dbrowser=opera"
-               bat "echo Opera"
+               bat "echo Testing Completed Opera browser"
             }
           )
         }
@@ -47,7 +48,7 @@ pipeline {
 	    stage('BUILD') {
 	     steps {
 	        bat "mvn install"
-           bat "echo Hi"
+           bat "echo Build Completed Successfully"
 	     }
       }
       stage('CERT') {
@@ -85,7 +86,7 @@ pipeline {
 	} 
 	post {
       always {
-        // emailext body: '$DEFAULT_CONTENT', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'JENKINS: (${JOB_NAME}) (${BUILD_NUMBER}) : $DEFAULT_SUBJECT',to: 'vaichalkar.shailendra@gmail.com'
+        emailext body: '$DEFAULT_CONTENT', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'JENKINS: (${JOB_NAME}) (${BUILD_NUMBER}) : $DEFAULT_SUBJECT',to: 'vaichalkar.shailendra@gmail.com'
         echo "Mail Sent"
       }
     }
