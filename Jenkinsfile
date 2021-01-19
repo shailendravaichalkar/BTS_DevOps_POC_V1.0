@@ -8,13 +8,13 @@ pipeline {
     }
    stages {
       stage('FETCH CODE') {
-		steps {
-			git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
-			bat "mvn clean compile"
-         bat "echo code compilation Finished"
-		}
+         steps {
+            git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
+            bat "mvn clean compile"
+            bat "echo code compilation Finished"
+         }
       }
-      stage('TEST') {           
+      /* stage('TEST') {           
         steps {
            parallel(
             Firefox: {
@@ -83,6 +83,7 @@ pipeline {
            // }
          }
       }
+      */
 	} 
 	post {
       always {
