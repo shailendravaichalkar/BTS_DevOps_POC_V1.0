@@ -92,12 +92,12 @@ pipeline {
                  to: 'vaichalkar.shailendra@gmail.com'
 
         // recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-
+      */
         emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                  subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                  to: "vaichalkar.shailendra@gmail.com"
-       */
-       emailext body: 'test SHA', subject: 'test SHA', to: 'vaichalkar.shailendra@gmail.com'
+       
+
         echo "Mail Sent"
       }
     }
