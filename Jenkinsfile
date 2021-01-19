@@ -60,8 +60,8 @@ pipeline {
               },
               UNIX: {
                  // bat 'scp * devops@104.43.194.199:/home/devops/poc'
-                 bat '"c:\\Program Files\\git\\usr\\bin\\scp.exe" -i "c:\\Users\\svaichalkar\\.ssh\\id_rsa" C:\\POC\\poc-1.0-SNAPSHOT.jar devops@104.43.194.199:poc//poc-1.0-SNAPSHOT.jar'
-                 bat '"c:\\Program Files\\git\\usr\\bin\\ssh.exe" -i "c:\\Users\\svaichalkar\\.ssh\\id_rsa" devops@104.43.194.199:poc" ls -ltr'
+                 // bat '"c:\\Program Files\\git\\usr\\bin\\scp.exe" -i "c:\\Users\\svaichalkar\\.ssh\\id_rsa" C:\\POC\\poc-1.0-SNAPSHOT.jar devops@104.43.194.199:poc//poc-1.0-SNAPSHOT.jar'
+                 //bat '"c:\\Program Files\\git\\usr\\bin\\ssh.exe" -i "c:\\Users\\svaichalkar\\.ssh\\id_rsa" devops@104.43.194.199:poc" ls -ltr'
                  build 'BTS_MavenSelenium_POC_v1.0_toUnix'
                  echo "Unix"
               }      
