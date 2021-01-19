@@ -55,7 +55,7 @@ pipeline {
 	     steps {
            parallel(  
               Windows: {
-                 bat 'copy * c://POC//'
+                 bat 'copy * c:\\POC\\'
                  echo "Windows"
               },
               UNIX: {
