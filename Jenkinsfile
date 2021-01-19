@@ -1,11 +1,11 @@
 // Author : Shailendra V
 // Jenkinsfile
-
+def remote = ""
 pipeline {
    agent any
    tools ('Init') {
       maven "localMaven"
-      def remote = ""
+      
       remote.name = "node"
       remote.host = "104.43.194.199"
       remote.allowAnyHosts = true
