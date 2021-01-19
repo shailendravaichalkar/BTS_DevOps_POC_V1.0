@@ -86,8 +86,8 @@ pipeline {
       */
 	} 
 	post {
-      /*always {
-        emailext body: '$DEFAULT_CONTENT', 
+      always {
+        /*emailext body: '$DEFAULT_CONTENT', 
                  subject: 'JENKINS: (${JOB_NAME}) (${BUILD_NUMBER}) : $DEFAULT_SUBJECT',
                  to: 'vaichalkar.shailendra@gmail.com'
 
