@@ -3,12 +3,12 @@
 
 pipeline {
    agent any
-   def remote = [:]
-   remote.name = "node"
-   remote.host = "104.43.194.199"
-   remote.allowAnyHosts = true
    tools ('Init') {
       maven "localMaven"
+      def remote = [:]
+      remote.name = "node"
+      remote.host = "104.43.194.199"
+      remote.allowAnyHosts = true
     }
    stages {
       stage('FETCH CODE') {
