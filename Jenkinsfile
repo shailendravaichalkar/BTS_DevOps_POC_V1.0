@@ -67,6 +67,9 @@ pipeline {
       }
         stage('PROD') {
 	     steps {
+           timeout(time: 10, unit: 'MINUTES') {
+                input(id: "PRODUCTION Deply", message: "Please approve the deployment is production :  ${params.project_name}?", ok: 'Deploy')
+           }
            parallel(  
               Windows: {
                   bat 'copy target\\*.jar c:\\POC_PROD\\'
