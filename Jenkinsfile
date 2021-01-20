@@ -70,9 +70,12 @@ pipeline {
       }
 
       stage('PROD') {
-	      steps {
-            echo "Hi"
-	      }
+            steps{
+                timeout(time:5, unit:'DAYS'){
+                    input message:'Approve PRODUCTION Deployment?'
+                }
+                echo "Hi"
+            }
       }
    } 
 
