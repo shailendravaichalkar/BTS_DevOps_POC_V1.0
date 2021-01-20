@@ -68,10 +68,9 @@ pipeline {
            )
          }
       }
-      
+      input 'Do you want to proceed for production deployment?'
       stage('PROD') {
 	      steps {
-            input 'Do you want to proceed for production deployment?'
             parallel(  
                Windows: {
                   bat 'copy target\\*.jar c:\\POC_PROD\\'
