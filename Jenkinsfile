@@ -65,7 +65,7 @@ pipeline {
            )
          }
       }
-            stage('PROD') {
+        stage('PROD') {
 	     steps {
            parallel(  
               Windows: {
