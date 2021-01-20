@@ -71,19 +71,17 @@ pipeline {
       
       stage('PROD') {
 	      steps {
-            timeout(time: 10, unit: 'MINUTES') {
-               input 'Do you want to proceed for production deployment?'
-               parallel(  
-                  Windows: {
-                     bat 'copy target\\*.jar c:\\POC_PROD\\'
-                     echo "PROD Windows Tier Deployment is completed"
-                  },
-                  UNIX: {
-                     build 'BTS_MavenSelenium_POC_v1.0_toUnix_PROD'
-                     echo "PROD Unix Tier Deployment is completed"
-                  }
-               )
-            }
+            input 'Do you want to proceed for production deployment?'
+            parallel(  
+               Windows: {
+                  bat 'copy target\\*.jar c:\\POC_PROD\\'
+                  echo "PROD Windows Tier Deployment is completed"
+               },
+               UNIX: {
+                  build 'BTS_MavenSelenium_POC_v1.0_toUnix_PROD'
+                  echo "PROD Unix Tier Deployment is completed"
+               }
+            )
 	      }
       } 
 	   
