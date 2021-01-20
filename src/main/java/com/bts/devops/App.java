@@ -10,6 +10,6 @@ public class App
     public static void main( String[] args )
     {
         // This is buggy line. 
-        System.out.println( "Hello World!" );
+        System.out.println( "This is DevOps CI/CD Demo!" );
     }
 }
