@@ -65,24 +65,23 @@ pipeline {
            )
          }
       }
-        stage('PROD') {
+      stage('PROD') {
 	     steps {
            timeout(time: 10, unit: 'MINUTES') {
                 input(id: "PRODUCTION Deply", message: "Please approve the deployment is production :  ${params.project_name}?", ok: 'Deploy')
-           }
-           parallel(  
-              Windows: {
-                  bat 'copy target\\*.jar c:\\POC_PROD\\'
-                  echo "PROD Windows Tier Deployment is completed"
-              },
-              UNIX: {
-                 build 'BTS_MavenSelenium_POC_v1.0_toUnix_PROD'
-                 echo "PROD Unix Tier Deployment is completed"
-              }      
-           )
-         }
-      }
-	} 
+                parallel(  
+                   Windows: {
+                     bat 'copy target\\*.jar c:\\POC_PROD\\'
+                     echo "PROD Windows Tier Deployment is completed"
+                  },
+                  UNIX: {
+                     build 'BTS_MavenSelenium_POC_v1.0_toUnix_PROD'
+                      echo "PROD Unix Tier Deployment is completed"
+                  }      
+               )
+            }
+          }
+	   } 
 	post {
       always {
         emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
