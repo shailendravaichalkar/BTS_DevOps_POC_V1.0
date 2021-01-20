@@ -51,7 +51,7 @@ pipeline {
            bat "echo Build Completed Successfully"
 	     }
       }
-      stage('CERT_Deploy') {
+      stage('CERT') {
 	     steps {
            parallel(  
               Windows: {
@@ -65,15 +65,12 @@ pipeline {
            )
          }
       }
-      stage('PROD_Confirm') {
+      stage('PROD') {
 	     steps {
            timeout(time: 10, unit: 'MINUTES') {
-                input(id: "PRODUCTION Deply", message: "Please approve the deployment is production :  ${params.project_name}?", ok: 'PROD_Deploy')
-
+                input{message "Do you want to proceed for production deployment?"}
             }
-          }
-	   }
-      stage('PROD_Deploy') {
+         }
          steps {
             parallel(  
                    Windows: {
@@ -83,9 +80,9 @@ pipeline {
                   UNIX: {
                      build 'BTS_MavenSelenium_POC_v1.0_toUnix_PROD'
                       echo "PROD Unix Tier Deployment is completed"
-                  }      
-               )
          }
+	    }
+      
       } 
 	post {
       always {
