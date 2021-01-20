@@ -68,19 +68,21 @@ pipeline {
            )
          }
       }
-      input 'Do you want to proceed for production deployment?'
+
       stage('PROD') {
 	      steps {
-            parallel(  
-               Windows: {
-                  bat 'copy target\\*.jar c:\\POC_PROD\\'
-                  echo "PROD Windows Tier Deployment is completed"
-               },
-               UNIX: {
-                  build 'BTS_MavenSelenium_POC_v1.0_toUnix_PROD'
-                  echo "PROD Unix Tier Deployment is completed"
+            def userInput = false
+            script {
+               def userInput = input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
+               echo 'userInput: ' + userInput
+               if(userInput == true) {
+                  echo "HI"
+                // do action
+               } else {
+                // not do action
+                echo "PRODUCTION Deployment is NOT Done."
                }
-            )
+            }    
 	      }
       } 
 	   
