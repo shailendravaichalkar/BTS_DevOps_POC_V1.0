@@ -72,7 +72,7 @@ pipeline {
       stage('PROD') {
 	      steps {
             timeout(time: 10, unit: 'MINUTES') {
-               input "Do you want to proceed for production deployment?"
+               input 'Do you want to proceed for production deployment?'
                parallel(  
                   Windows: {
                      bat 'copy target\\*.jar c:\\POC_PROD\\'
