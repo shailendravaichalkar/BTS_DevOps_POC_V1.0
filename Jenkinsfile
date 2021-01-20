@@ -71,17 +71,7 @@ pipeline {
 
       stage('PROD') {
 	      steps {
-            script {
-               def userInput = input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
-               echo 'userInput: ' + userInput
-               if(userInput == true) {
-                  echo "HI"
-                // do action
-               } else {
-                // not do action
-                  echo "PRODUCTION Deployment is NOT Done."
-               }
-            }    
+            echo "Hi"
 	      }
       }
    } 
