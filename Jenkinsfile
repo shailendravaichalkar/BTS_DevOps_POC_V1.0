@@ -51,7 +51,7 @@ pipeline {
            bat "echo Build Completed Successfully"
 	     }
       }
-      stage('CERT') {
+      stage('CERT_Deploy') {
 	     steps {
            parallel(  
               Windows: {
@@ -65,11 +65,17 @@ pipeline {
            )
          }
       }
-      stage('PROD') {
+      stage('PROD_Confirm') {
 	     steps {
            timeout(time: 10, unit: 'MINUTES') {
-                input(id: "PRODUCTION Deply", message: "Please approve the deployment is production :  ${params.project_name}?", ok: 'Deploy')
-                parallel(  
+                input(id: "PRODUCTION Deply", message: "Please approve the deployment is production :  ${params.project_name}?", ok: 'PROD_Deploy')
+
+            }
+          }
+	   }
+      stage('PROD_Deploy') {
+         steps {
+            parallel(  
                    Windows: {
                      bat 'copy target\\*.jar c:\\POC_PROD\\'
                      echo "PROD Windows Tier Deployment is completed"
@@ -79,9 +85,8 @@ pipeline {
                       echo "PROD Unix Tier Deployment is completed"
                   }      
                )
-            }
-          }
-	   } 
+         }
+      } 
 	post {
       always {
         emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
