@@ -63,17 +63,13 @@ pipeline {
                  echo "CERT Unix Tier Deployment is completed"
               }      
            )
-	        // archiveArtifacts 'target/*.jar'
-           // sshagent(['unix_devops']) {
-              
-           // }
          }
       }
             stage('PROD') {
 	     steps {
            parallel(  
               Windows: {
-                  bat 'copy target\\*.jar c:\\PROD_POC\\'
+                  bat 'copy target\\*.jar c:\\POC_PROD\\'
                   echo "PROD Windows Tier Deployment is completed"
               },
               UNIX: {
@@ -81,10 +77,6 @@ pipeline {
                  echo "PROD Unix Tier Deployment is completed"
               }      
            )
-	        // archiveArtifacts 'target/*.jar'
-           // sshagent(['unix_devops']) {
-              
-           // }
          }
       }
 	} 
