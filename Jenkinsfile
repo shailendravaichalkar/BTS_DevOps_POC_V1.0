@@ -10,7 +10,7 @@ pipeline {
       stage('FETCH CODE') {
          steps {
             git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
-            //bat "mvn clean compile"
+            bat "mvn clean compile"
             bat "echo code compilation Finished"
          }
       }
@@ -56,14 +56,11 @@ pipeline {
            parallel(  
               Windows: {
                  bat 'copy target\\*.jar c:\\POC\\'
-                 echo "Windows"
+                 echo "CERT Windows Tier Deployment is completed"
               },
               UNIX: {
-                 // bat 'scp * devops@104.43.194.199:/home/devops/poc'
-                 // bat '"c:\\Program Files\\git\\usr\\bin\\scp.exe" -i "c:\\Users\\svaichalkar\\.ssh\\id_rsa" C:\\POC\\poc-1.0-SNAPSHOT.jar devops@104.43.194.199:poc//poc-1.0-SNAPSHOT.jar'
-                 //bat '"c:\\Program Files\\git\\usr\\bin\\ssh.exe" -i "c:\\Users\\svaichalkar\\.ssh\\id_rsa" devops@104.43.194.199:poc" ls -ltr'
-                 build 'BTS_MavenSelenium_POC_v1.0_toUnix'
-                 echo "Unix"
+                 build 'BTS_MavenSelenium_POC_v1.0_toUnix_CERT'
+                 echo "CERT Unix Tier Deployment is completed"
               }      
            )
 	        // archiveArtifacts 'target/*.jar'
@@ -76,10 +73,12 @@ pipeline {
 	     steps {
            parallel(  
               Windows: {
-                 echo "Windows Prod"
+                  bat 'copy target\\*.jar c:\\PROD_POC\\'
+                  echo "PROD Windows Tier Deployment is completed"
               },
               UNIX: {
-                 echo "Unix Prod"
+                 build 'BTS_MavenSelenium_POC_v1.0_toUnix_PROD'
+                 echo "PROD Unix Tier Deployment is completed"
               }      
            )
 	        // archiveArtifacts 'target/*.jar'
