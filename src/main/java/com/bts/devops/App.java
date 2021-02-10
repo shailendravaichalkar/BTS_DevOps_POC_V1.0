@@ -2,7 +2,7 @@ package com.bts.devops;
 
 /***
  *  Author : Shailendra
- *  Hello world!
+ *  This code is developed for the purpose of DevOps Demo.
  *
  */
 public class App 
@@ -13,3 +13,4 @@ public class App
         System.out.println( "Hello Team!" );
     }
 }
+
