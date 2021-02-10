@@ -97,7 +97,7 @@ pipeline {
          always {
             emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                  subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                 to: "shailendra.v@fiserv.com; priyanka.bhor@fiserv.com"
+                 to: "shailendra.v@fiserv.com; priyanka.bhor@fiserv.com; dalvir.singh@fiserv.com; Upendra.Kamat@fiserv.com; Kapil.Gupta@fiserv.com"
             echo "Mail Sent"
          }
    }
