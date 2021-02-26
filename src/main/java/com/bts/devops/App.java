@@ -10,7 +10,7 @@ public class App
     public static void main( String[] args )
     {
         // This is buggy line. 
-        System.out.println( "Hello Team!" )
+        System.out.println( "Hello Team!" );
     }
 }
 
