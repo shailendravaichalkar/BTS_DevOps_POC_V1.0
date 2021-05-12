@@ -13,5 +13,3 @@ public class App
         System.out.println( "Hello Team! Welcome To the Devops Session." );
     }
 }
-
-

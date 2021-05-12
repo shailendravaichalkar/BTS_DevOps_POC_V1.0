@@ -12,8 +12,7 @@ pipeline {
             git 'https://github.com/shailendravaichalkar/BTS_DevOps_POC_V1.0.git'
             bat "mvn clean compile"
             bat "echo code compilation Finished"
-            bat  "GIT Fetch code is in success."
-         }
+            }
       }
       
       stage('TEST') {           
